@@ -3,14 +3,13 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.boschebike.svg)](https://www.npmjs.com/package/iobroker.boschebike)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.boschebike.svg)](https://www.npmjs.com/package/iobroker.boschebike)
-![Number of Installations (latest)](http://iobroker.live/badges/boschebike-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/boschebike-stable.svg)
+![Number of Installations (latest)](https://iobroker.live/badges/boschebike-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/boschebike-stable.svg)
 [![Dependency Status](https://img.shields.io/david/gaudes/iobroker.boschebike.svg)](https://david-dm.org/gaudes/iobroker.boschebike)
-[![Known Vulnerabilities](https://snyk.io/test/github/gaudes/ioBroker.boschebike/badge.svg)](https://snyk.io/test/github/gaudes/ioBroker.boschebike)
+![Test and Release](https://github.com/gaudes/ioBroker.boschebike/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.boschebike.png?downloads=true)](https://nodei.co/npm/iobroker.boschebike/)
 
-**Tests:** ![Test and Release](https://github.com/gaudes/ioBroker.boschebike/workflows/Test%20and%20Release/badge.svg)
 
 ## boschebike adapter for ioBroker
 
