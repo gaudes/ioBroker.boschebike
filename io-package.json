@@ -1,0 +1,116 @@
+{
+	"common": {
+		"name": "boschebike",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "Bosch eBike",
+		"titleLang": {
+			"en": "Bosch eBike",
+			"de": "Bosch eBike",
+			"ru": "Bosch eBike",
+			"pt": "EBike da Bosch",
+			"nl": "Bosch eBike",
+			"fr": "Vélo électrique Bosch",
+			"it": "Bosch eBike",
+			"es": "Bicicleta eléctrica Bosch",
+			"pl": "Bosch eBike",
+			"zh-cn": "博世电动自行车"
+		},
+		"desc": {
+			"en": "Bosch eBike Connect",
+			"de": "Bosch eBike Connect",
+			"ru": "Bosch eBike Connect",
+			"pt": "Bosch eBike Connect",
+			"nl": "Bosch eBike Connect",
+			"fr": "Bosch eBike Connect",
+			"it": "Bosch eBike Connect",
+			"es": "Bosch eBike Connect",
+			"pl": "Bosch eBike Connect",
+			"zh-cn": "博世eBike Connect"
+		},
+		"authors": [
+			"Gaudes <ralf@gaudes.net>"
+		],
+		"keywords": [
+			"ioBroker",
+			"Smart Home",
+			"bosch",
+			"ebike"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "build/main.js",
+		"icon": "boschebike.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/gaudes/ioBroker.boschebike/master/admin/boschebike.png",
+		"readme": "https://github.com/gaudes/ioBroker.boschebike/blob/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "vehicle",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=2.0.0"
+			}
+		],
+		"plugins":{
+			"sentry":{
+				"dsn": "https://e1304da9bf394069b7850f7e334b4657@sentry.iobroker.netOO/105",
+				"errorBlacklist":[
+					"SyntaxError"
+				] 
+			} 
+		} 
+	},
+	"encryptedNative":[
+		"user_password"
+	],
+	"native": {
+		"user_name": "",
+		"user_password": "",
+		"update_interval": 60,
+		"info_user": true,
+		"info_ebike": true,
+		"sentry_disable": false
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		}
+	]
+}

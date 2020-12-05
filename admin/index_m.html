@@ -1,0 +1,101 @@
+<html>
+<head>
+	<!-- Load ioBroker scripts and styles-->
+	<link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
+	<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+	<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+	<script type="text/javascript" src="../../js/translate.js"></script>
+	<script type="text/javascript" src="../../lib/js/materialize.js"></script>
+	<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+
+	<!-- Load our own files -->
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="words.js"></script>
+
+	<script type="text/javascript">
+		function load(settings, onChange) {
+			if (!settings) return;
+			$('.value').each(function () {
+				var $key = $(this);
+				var id = $key.attr('id');
+				if ($key.attr('type') === 'checkbox') {
+					$key.prop('checked', settings[id])
+						.on('change', () => onChange())
+						;
+				} else {
+					$key.val(settings[id])
+						.on('change', () => onChange())
+						.on('keyup', () => onChange())
+						;
+				}
+			});
+			onChange(false);
+						if (M) M.updateTextFields();
+		}
+
+		function save(callback) {
+			var obj = {};
+			$('.value').each(function () {
+				var $this = $(this);
+				if ($this.attr('type') === 'checkbox') {
+					obj[$this.attr('id')] = $this.prop('checked');
+				} else {
+					obj[$this.attr('id')] = $this.val();
+				}
+			});
+			callback(obj);
+		}
+	</script>
+</head>
+
+<body>
+	<div class="m adapter-container">
+		<div class="row">
+			<div class="col s12 m4 l2">
+				<img src="boschebike.png" class="logo">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6">
+				<div>
+					<h6 class="translate">Account</h3>
+					<br/>
+				</div>
+				<div class="input-field">
+					<input type="text" class="value" id="user_name" />
+					<label for="user_name" class="translate">UserName</label>
+				</div>
+				<div class="input-field">
+					<input type="password" class="value" id="user_password" />
+					<label for="user_password" class="translate">UserPassword</label>
+				</div>
+				<div>
+					<h6 class="translate">Informations</h3>
+				</div>
+				<div class="input-field">
+					<input type="checkbox" class="value" id="info_user" />
+					<label for="info_user" class="translate">InfoUser</label>
+				</div>
+				<div class="input-field">
+					<input type="checkbox" class="value" id="info_ebike" />
+					<label for="info_ebike" class="translate">InfoEBike</label>
+				</div>
+			</div>
+			<div class="col s6">
+				<div>
+					<h6 class="translate">General</h3>
+					<br/>
+				</div>
+				<div class="input-field">
+					<input type="number" class="value" min="1" max="180" id="update_interval" />
+					<label for="update_interval" class="translate">UpdateInterval</label>
+				</div>
+				<div><br /></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
