@@ -156,7 +156,7 @@ class Boschebike extends utils.Adapter {
                 const becResult = await (this.bec.get(this.becURLUserInfo));
                 if (becResult.data["user"]["email"] === this.config.user_name) {
                     this.ReportingInfo("Debug", "UserInfo", "UserInfo received", { JSON: becResult.data });
-                    const iobResult = Array(iobObjectHelper.buildObject(this, { id: "user", name: "user", objectType: "template", template: "channel" }));
+                    const iobResult = [iobObjectHelper.buildObject(this, { id: "user", name: "user", objectType: "template", template: "channel" })];
                     iobResult.push(iobObjectHelper.buildObject(this, { id: "info", name: "Information", objectType: "template", template: "channel" }));
                     iobResult.push(iobObjectHelper.buildObject(this, { id: "info.json_user", name: "json_user", value: JSON.stringify(becResult.data), objectType: "template", template: "json" }));
                     const becUserInfo = new becUser.becUser(JSON.stringify(becResult.data));
@@ -224,7 +224,7 @@ class Boschebike extends utils.Adapter {
                 const becResult = await (this.bec.get(this.becURLBikeInfo));
                 if (becResult.data["my_ebikes"]) {
                     this.ReportingInfo("Debug", "BikeInfo", "BikeInfo received", { JSON: becResult.data });
-                    const iobResult = Array(iobObjectHelper.buildObject(this, { id: "info", name: "Information", objectType: "template", template: "channel" }));
+                    const iobResult = [iobObjectHelper.buildObject(this, { id: "info", name: "Information", objectType: "template", template: "channel" })];
                     iobResult.push(iobObjectHelper.buildObject(this, { id: "info.json_bikes", name: "json_bikes", value: JSON.stringify(becResult.data["my_ebikes"]), objectType: "template", template: "json" }));
                     if (Array.isArray(becResult.data["my_ebikes"])) {
                         let CounterBikes = 0;
@@ -303,7 +303,7 @@ class Boschebike extends utils.Adapter {
                 const becResult = await (this.bec.get(this.becURLStatData));
                 if (becResult.data["total_statistics"]) {
                     this.ReportingInfo("Debug", "StatsInfo", "StatsInfo received", { JSON: becResult.data });
-                    const iobResult = Array(iobObjectHelper.buildObject(this, { id: "info", name: "Information", objectType: "template", template: "channel" }));
+                    const iobResult = [iobObjectHelper.buildObject(this, { id: "info", name: "Information", objectType: "template", template: "channel" })];
                     iobResult.push(iobObjectHelper.buildObject(this, { id: "info.json_stats", name: "json_stats", value: JSON.stringify(becResult.data), objectType: "template", template: "json" }));
                     const becStatsInfo = new becStats.becStats(JSON.stringify(becResult.data));
                     if (becStatsInfo.isValid === false) {
