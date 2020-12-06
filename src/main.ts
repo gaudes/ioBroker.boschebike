@@ -170,7 +170,7 @@ class Boschebike extends utils.Adapter {
 						iobResult.push(iobObjectHelper.buildObject(this, {id: "user.namefirst", name: "namefirst", value: becUserInfo.namefirst, objectType: "state", role: "text", description: "First Name"}));
 						iobResult.push(iobObjectHelper.buildObject(this, {id: "user.namelast", name: "namelast", value: becUserInfo.namelast, objectType: "state", role: "text", description: "Last Name"}));
 						if (becUserInfo.birthday !== null){
-							iobResult.push(iobObjectHelper.buildObject(this, {id: "user.birthday", name: "birthday", value: becUserInfo.birthday?.toString() || "", objectType: "state", role: "date", description: "Birthday"}));
+							iobResult.push(iobObjectHelper.buildObject(this, {id: "user.birthday", name: "birthday", value: becUserInfo.birthday, objectType: "state", role: "date", description: "Birthday"}));
 						}
 						iobResult.push(iobObjectHelper.buildObject(this, {id: "user.gender", name: "gender", value: becUserInfo.gender, objectType: "state", role: "state", description: "Gender"}));
 						iobResult.push(iobObjectHelper.buildObject(this, {id: "user.height", name: "height", value: becUserInfo.height, objectType: "state", role: "value", description: "Height"}));
@@ -259,8 +259,8 @@ class Boschebike extends utils.Adapter {
 									iobResult.push(iobObjectHelper.buildObject(this, {id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.sw_version`, name: "sw_version", value: element.sw_version, objectType: "state", role: "text", description: "Software version"}));
 									iobResult.push(iobObjectHelper.buildObject(this, {id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.serial`, name: "serial", value: element.serial, objectType: "state", role: "text", description: "Serial number"}));
 									iobResult.push(iobObjectHelper.buildObject(this, {id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.partnumber`, name: "partnumber", value: element.partnumber, objectType: "state", role: "text", description: "Part number"}));
-									iobResult.push(iobObjectHelper.buildObject(this, {id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.lastsync`, name: "lastsync", value: element.lastsync?.toString() || "", objectType: "state", role: "date", description: "Last sync time"}));
-									iobResult.push(iobObjectHelper.buildObject(this, {id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.uploaduntil`, name: "uploaduntil", value: element.uploaduntil?.toString() || "", objectType: "state", role: "date", description: "Upload until time"}));
+									iobResult.push(iobObjectHelper.buildObject(this, {id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.lastsync`, name: "lastsync", value: element.lastsync || "", objectType: "state", role: "date", description: "Last sync time"}));
+									iobResult.push(iobObjectHelper.buildObject(this, {id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.uploaduntil`, name: "uploaduntil", value: element.uploaduntil || "", objectType: "state", role: "date", description: "Upload until time"}));
 									CounterUIs++;
 								})
 								let CounterBatteries = 0;

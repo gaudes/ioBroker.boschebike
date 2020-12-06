@@ -149,7 +149,6 @@ class Boschebike extends utils.Adapter {
      * Receives Information about user from Bosch eBike Connect
      */
     async becGetUserInfo() {
-        var _a;
         try {
             if (await this.becConnection() === true) {
                 this.ReportingInfo("Debug", "UserInfo", "Starting becGetUserInfo");
@@ -169,7 +168,7 @@ class Boschebike extends utils.Adapter {
                         iobResult.push(iobObjectHelper.buildObject(this, { id: "user.namefirst", name: "namefirst", value: becUserInfo.namefirst, objectType: "state", role: "text", description: "First Name" }));
                         iobResult.push(iobObjectHelper.buildObject(this, { id: "user.namelast", name: "namelast", value: becUserInfo.namelast, objectType: "state", role: "text", description: "Last Name" }));
                         if (becUserInfo.birthday !== null) {
-                            iobResult.push(iobObjectHelper.buildObject(this, { id: "user.birthday", name: "birthday", value: ((_a = becUserInfo.birthday) === null || _a === void 0 ? void 0 : _a.toString()) || "", objectType: "state", role: "date", description: "Birthday" }));
+                            iobResult.push(iobObjectHelper.buildObject(this, { id: "user.birthday", name: "birthday", value: becUserInfo.birthday, objectType: "state", role: "date", description: "Birthday" }));
                         }
                         iobResult.push(iobObjectHelper.buildObject(this, { id: "user.gender", name: "gender", value: becUserInfo.gender, objectType: "state", role: "state", description: "Gender" }));
                         iobResult.push(iobObjectHelper.buildObject(this, { id: "user.height", name: "height", value: becUserInfo.height, objectType: "state", role: "value", description: "Height" }));
@@ -251,7 +250,6 @@ class Boschebike extends utils.Adapter {
                                 iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.DriveUnit.lockservice`, name: "lockservice", value: becBikeInfo.DriveUnit.lockservice.toString(), objectType: "state", role: "value", description: "Lock service enabled" }));
                                 let CounterUIs = 0;
                                 (_a = becBikeInfo.UIs) === null || _a === void 0 ? void 0 : _a.forEach(element => {
-                                    var _a, _b;
                                     let CounterUIsOutput = "";
                                     if (CounterUIs !== 0) {
                                         CounterUIsOutput = CounterBikes.toString();
@@ -261,8 +259,8 @@ class Boschebike extends utils.Adapter {
                                     iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.sw_version`, name: "sw_version", value: element.sw_version, objectType: "state", role: "text", description: "Software version" }));
                                     iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.serial`, name: "serial", value: element.serial, objectType: "state", role: "text", description: "Serial number" }));
                                     iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.partnumber`, name: "partnumber", value: element.partnumber, objectType: "state", role: "text", description: "Part number" }));
-                                    iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.lastsync`, name: "lastsync", value: ((_a = element.lastsync) === null || _a === void 0 ? void 0 : _a.toString()) || "", objectType: "state", role: "date", description: "Last sync time" }));
-                                    iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.uploaduntil`, name: "uploaduntil", value: ((_b = element.uploaduntil) === null || _b === void 0 ? void 0 : _b.toString()) || "", objectType: "state", role: "date", description: "Upload until time" }));
+                                    iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.lastsync`, name: "lastsync", value: element.lastsync || "", objectType: "state", role: "date", description: "Last sync time" }));
+                                    iobResult.push(iobObjectHelper.buildObject(this, { id: `bike${CounterBikesOutput}.UI${CounterUIsOutput}.uploaduntil`, name: "uploaduntil", value: element.uploaduntil || "", objectType: "state", role: "date", description: "Upload until time" }));
                                     CounterUIs++;
                                 });
                                 let CounterBatteries = 0;
