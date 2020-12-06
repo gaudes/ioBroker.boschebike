@@ -32,12 +32,12 @@ class becStats {
         this.month_current.calories = ((_h = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _h === void 0 ? void 0 : _h.calories_burned) || 0;
         this.month_current.elevation = ((_j = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _j === void 0 ? void 0 : _j.elevation_gain) || 0;
         this.month_last = new becStatsMonth();
-        this.month_last.month = ((_k = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _k === void 0 ? void 0 : _k.month) || 0;
-        this.month_last.distance_meter = ((_l = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _l === void 0 ? void 0 : _l.distance) || 0;
-        this.month_last.distance_kilometer = Math.round((((_m = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _m === void 0 ? void 0 : _m.distance) || 0) / 1000);
-        this.month_last.avgspeed = (((_o = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _o === void 0 ? void 0 : _o.average_speed) || 0).toFixed(2);
-        this.month_last.calories = ((_p = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _p === void 0 ? void 0 : _p.calories_burned) || 0;
-        this.month_last.elevation = ((_q = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.current_month) === null || _q === void 0 ? void 0 : _q.elevation_gain) || 0;
+        this.month_last.month = ((_k = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.last_month) === null || _k === void 0 ? void 0 : _k.month) || 0;
+        this.month_last.distance_meter = ((_l = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.last_month) === null || _l === void 0 ? void 0 : _l.distance) || 0;
+        this.month_last.distance_kilometer = Math.round((((_m = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.last_month) === null || _m === void 0 ? void 0 : _m.distance) || 0) / 1000);
+        this.month_last.avgspeed = (((_o = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.last_month) === null || _o === void 0 ? void 0 : _o.average_speed) || 0).toFixed(2);
+        this.month_last.calories = ((_p = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.last_month) === null || _p === void 0 ? void 0 : _p.calories_burned) || 0;
+        this.month_last.elevation = ((_q = jsonObj === null || jsonObj === void 0 ? void 0 : jsonObj.last_month) === null || _q === void 0 ? void 0 : _q.elevation_gain) || 0;
         this.isValid = true;
     }
 }

@@ -46,12 +46,12 @@ export class becStats{
 		this.month_current.calories = jsonObj?.current_month?.calories_burned || 0;
 		this.month_current.elevation = jsonObj?.current_month?.elevation_gain || 0;
 		this.month_last = new becStatsMonth();
-		this.month_last.month = jsonObj?.current_month?.month || 0;
-		this.month_last.distance_meter = jsonObj?.current_month?.distance || 0;
-		this.month_last.distance_kilometer = Math.round((jsonObj?.current_month?.distance || 0) / 1000);
-		this.month_last.avgspeed = (jsonObj?.current_month?.average_speed || 0).toFixed(2);
-		this.month_last.calories = jsonObj?.current_month?.calories_burned || 0;
-		this.month_last.elevation = jsonObj?.current_month?.elevation_gain || 0;
+		this.month_last.month = jsonObj?.last_month?.month || 0;
+		this.month_last.distance_meter = jsonObj?.last_month?.distance || 0;
+		this.month_last.distance_kilometer = Math.round((jsonObj?.last_month?.distance || 0) / 1000);
+		this.month_last.avgspeed = (jsonObj?.last_month?.average_speed || 0).toFixed(2);
+		this.month_last.calories = jsonObj?.last_month?.calories_burned || 0;
+		this.month_last.elevation = jsonObj?.last_month?.elevation_gain || 0;
 		this.isValid = true;
 	}
 }
