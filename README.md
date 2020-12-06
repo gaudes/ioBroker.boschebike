@@ -11,7 +11,6 @@
 [![NPM](https://nodei.co/npm/iobroker.boschebike.png?downloads=true)](https://nodei.co/npm/iobroker.boschebike/)
 
 [Deutsche Beschreibung](#deutsch)
-
 [English description](#english)
 
 
