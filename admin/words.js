@@ -76,7 +76,7 @@ systemDictionary = {
 	},
 	"UpdateInterval":{
 		"en:": "Update interval in minutes",
-		"de": "Aktualisierungsinterval in Minuten",
+		"de": "Aktualisierungsintervall in Minuten",
 		"ru": "Интервал обновления в минутах",
 		"pt": "Intervalo de atualização em minutos",
 		"nl": "Update-interval in minuten",

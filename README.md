@@ -10,13 +10,46 @@
 
 [![NPM](https://nodei.co/npm/iobroker.boschebike.png?downloads=true)](https://nodei.co/npm/iobroker.boschebike/)
 
+[Deutsche Beschreibung](#deutsch)
 
-## boschebike adapter for ioBroker
+[English description](#english)
 
-Bosch eBike Connect
 
-## Developer manual
-This section is intended for the developer. It can be deleted later
+## <a name="deutsch"></a>Bosch eBike Adapter für ioBroker
+Dieser Adapter für ioBroker verwendet die API von Bosch eBike Connect um Statistikdaten über die Nutzung des Bosch eBikes zu erhalten.
+
+Analog zur Webseite von Bosch eBike Connect werden hierbei die Gesamtdaten, die Daten des aktuellen und letzten Monats sowie des Monats mit der höchsten Fahrleistung abgerufen.
+
+Aufgrund der Integration des [Adapters SourceAnalytix](https://github.com/iobroker-community-adapters/ioBroker.sourceanalytix) werden diese Statistkdaten weiter aufbereitet. Hierüber sind dann exakte Wochen-, Monats- und Jahresdaten in ioBroker für eigene Auswertungen und zur Darstellung in VIS vorhanden.
+
+Zusätzlich können optional Informationen zum Benutzer und zum eBike abgerufen werden.
+
+### Konfiguration
+In den Einstellungen des Adapters müssen hauptsächlich die Zugangsdaten für Bosch eBike Connect eingetragen werden.
+
+Der Abruf der optionalen Daten (Informationen zu Benutzer und eBike) können aktiviert werden.
+
+Das Intervall für den Abruf der Daten von Bosch eBike Connect kann eingestellt werden. Das Minimum sind 10 Minuten.
+
+Sofern der [Adapter SourceAnalytix](https://github.com/iobroker-community-adapters/ioBroker.sourceanalytix) installiert ist, kann die Option zur Integration aktiviert werden.
+
+## <a name="english"></a>Bosch eBike Adapter for ioBroker
+This adapter for ioBroker uses the API of Bosch eBike Connect to receive statistic data about usage of the Bosch eBike.
+
+Analog to the website of Bosch eBike Connect the totals, data of the current and last month and the month with the highest performance are received.
+
+With integration of the [Adapter SourceAnalytix](https://github.com/iobroker-community-adapters/ioBroker.sourceanalytix) these statistic data are enhanced. Exactly data for weeks, months and years exist then in ioBroker and could be used for reporting and presentation in VIS.
+
+Additionally optional informations about user and the eBike can be revceived.
+
+## Configuration
+In the adapter settings mainly the account data for Bosch eBike Connect has to be entered.
+
+The receiving of the optional data (informations about user and eBike) can be activated.
+
+The interval for conneting to Bosch eBike Connect can be configured, the minimum is 10 minutes.
+
+The option for integration with the [adapter SourceAnalytix](https://github.com/iobroker-community-adapters/ioBroker.sourceanalytix) can be enabled when the adapter is installed.
 
 ### Getting started
 
