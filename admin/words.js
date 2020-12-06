@@ -109,5 +109,17 @@ systemDictionary = {
 		"es": "Contraseña",
 		"pl": "Hasło",
 		"zh-cn": "密码"
+	},
+	"UseSourceAnalytix":{
+		"en": "Use Adapter SourceAnalytix",
+		"de": "Adapter SourceAnalytix verwenden",
+		"ru": "Использовать адаптер SourceAnalytix",
+		"pt": "Use o adaptador SourceAnalytix",
+		"nl": "Gebruik Adapter SourceAnalytix",
+		"fr": "Utiliser l'adaptateur SourceAnalytix",
+		"it": "Usa Adapter SourceAnalytix",
+		"es": "Utilice el adaptador SourceAnalytix",
+		"pl": "Użyj adaptera SourceAnalytix",
+		"zh-cn": "使用适配器SourceAnalytix"
 	}
 };

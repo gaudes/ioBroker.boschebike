@@ -35,6 +35,12 @@
 			onChange(false);
 						if (M) M.updateTextFields();
 		}
+		
+		socket.emit('getState', 'system.adapter.sourceanalytix.0.alive', function (err, state) {
+			if (state !== null){
+				$("#use_sourceanalytix").removeAttr("disabled");
+			} 
+		});
 
 		function save(callback) {
 			var obj = {};
@@ -94,6 +100,10 @@
 					<label for="update_interval" class="translate">UpdateInterval</label>
 				</div>
 				<div><br /></div>
+				<div class="input-field">
+					<input type="checkbox" disabled class="value" id="use_sourceanalytix" />
+					<label for="use_sourceanalytix" class="translate">UseSourceAnalytix</label>
+				</div>
 			</div>
 		</div>
 	</div>
