@@ -25,7 +25,7 @@
     "iobroker-object-helper": "github:gaudes/iobroker-object-helper"
   },
   "devDependencies": {
-    "@alcalzone/release-script": "^1.8.1",
+    "@alcalzone/release-script": "^1.8.3",
     "@iobroker/testing": "^2.4.0",
     "@sentry/types": "^5.29.2",
     "@types/chai": "^4.2.14",
