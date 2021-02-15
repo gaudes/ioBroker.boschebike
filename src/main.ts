@@ -207,7 +207,7 @@ class Boschebike extends utils.Adapter {
 						}
 					}
 					this.ReportingInfo("Debug", "UserInfo", "UserInfo converted", { JSON: iobResult });
-					await iobObjectHelper.syncObjects(this, iobResult,{ removeUnused: true, except: /(info.*|bike.*|statistics.*)/} )
+					await iobObjectHelper.syncObjects(this, iobResult,{ removeUnused: true, except: /(info.*|bike.*|statistics.*)/} );
 				}
 			}
 		}catch(err){
@@ -338,7 +338,7 @@ class Boschebike extends utils.Adapter {
 						}
 					}
 					this.ReportingInfo("Debug", "StatsInfo", "StatsInfo converted", { JSON: iobResult });
-					await iobObjectHelper.syncObjects(this, iobResult,{ removeUnused: true, except: /(info.*|user.*|bike.*)/} )
+					await iobObjectHelper.syncObjects(this, iobResult,{ removeUnused: true, except: /(info.*|user.*|bike.*)/} );
 				}
 			}
 		}catch(err){
@@ -470,7 +470,7 @@ class Boschebike extends utils.Adapter {
 		// Sentry reporting
 		try{
 			if (Sentry && this.config.sentry_disable === false && ReportSentry === true) {
-				Sentry && Sentry.withScope(scope => {
+				Sentry.withScope(scope => {
 					scope.setLevel(SentryObj.Severity.Error);
 					scope.setExtra("NameFunction", NameFunction);
 					scope.setExtra("NameAction", NameAction);
