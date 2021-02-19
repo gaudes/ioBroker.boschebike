@@ -4,8 +4,13 @@
 declare global {
 	namespace ioBroker {
 		interface AdapterConfig {
-			option1: boolean;
-			option2: string;
+			"user_name": string
+			"user_password": string,
+			"update_interval": number,
+			"info_user": boolean,
+			"info_ebike": boolean,
+			"use_sourceanalytix": boolean,
+			"sentry_disable": boolean
 		}
 	}
 }

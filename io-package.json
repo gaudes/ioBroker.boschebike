@@ -87,6 +87,7 @@
 		"update_interval": 60,
 		"info_user": true,
 		"info_ebike": true,
+		"use_sourceanalytix": false,
 		"sentry_disable": false
 	},
 	"objects": [],

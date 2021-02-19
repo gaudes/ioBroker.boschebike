@@ -40,6 +40,7 @@ let Sentry: SentryObj.Hub|null  = null;
 //#endregion
 
 class Boschebike extends utils.Adapter {
+	private isSAConfigured: boolean;
 
 	//#region Basic Adapter Functions
 
@@ -50,6 +51,7 @@ class Boschebike extends utils.Adapter {
 		});
 		this.on("ready", this.onReady.bind(this));
 		this.on("unload", this.onUnload.bind(this));
+		this.isSAConfigured = false;
 	}
 
 	/**
@@ -121,10 +123,46 @@ class Boschebike extends utils.Adapter {
 				if (this.config.info_user) await this.becGetUserInfo();
 				if (this.config.info_ebike) await this.becGetBikeInfo();
 				await this.becGetStatsInfo();
+				if (this.isSAConfigured === false) await this.verifySA();
 				this.ReportingInfo("Info", "Adapter", "Bosch eBike information updated")
 			}
 		}catch(err){
 			this.ReportingError(err, MsgErrUnknown, "updateBEC");
+		}
+	}
+
+	private async verifySA(): Promise<void>{
+		try{
+			const obj = await this.getObjectAsync("statistics.total_distance_kilometer");
+			if (obj){
+				if (this.config.use_sourceanalytix === true && obj?.common.custom?.["sourceanalytix.0"]["enabled"] !== true){
+					obj.common.custom = { "sourceanalytix.0": {
+						enabled: true,
+						alias: "",
+						state_root_object_consumption: `${this.namespace}.statistics.distance`,
+						state_type: "km_distance",
+						state_unit: "km",
+						costs: false,
+						consumption: true,
+						meter_values: false,
+						start_day: 0,
+						start_week: 0,
+						start_month: 0,
+						start_quarter: 0,
+						start_year: 0 } };
+					await this.setObjectAsync("statistics.total_distance_kilometer", obj);
+					this.ReportingInfo("Debug", "Adapter", "SA enabled on object", { JSON: JSON.stringify(obj) });
+				} else if (this.config.use_sourceanalytix === false && obj?.common.custom?.["sourceanalytix.0"]["enabled"] === true){
+					obj.common.custom = {};
+					await this.setObjectAsync("statistics.total_distance_kilometer", obj);
+					this.ReportingInfo("Debug", "Adapter", "SA disabled on object", { JSON: JSON.stringify(obj) });
+				} else{
+					this.ReportingInfo("Debug", "Adapter", "SA correct configured");
+				}
+				this.isSAConfigured = true;
+			}
+		} catch(err){
+			this.ReportingError(err, MsgErrUnknown, "verifySA");
 		}
 	}
 
@@ -338,7 +376,11 @@ class Boschebike extends utils.Adapter {
 						}
 					}
 					this.ReportingInfo("Debug", "StatsInfo", "StatsInfo converted", { JSON: iobResult });
-					await iobObjectHelper.syncObjects(this, iobResult,{ removeUnused: true, except: /(info.*|user.*|bike.*)/} );
+					let RemovalException = /(info.*|user.*|bike.*)/;
+					if (this.config.use_sourceanalytix === true){
+						RemovalException = /(info.*|user.*|bike.*|statistics.distance.*)/;
+					}
+					await iobObjectHelper.syncObjects(this, iobResult,{ removeUnused: true, except: RemovalException} );
 				}
 			}
 		}catch(err){
