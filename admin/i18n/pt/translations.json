@@ -1,0 +1,12 @@
+{
+    "Account": "Conta Bosch eBike Connect",
+    "General": "Configurações",
+    "InfoEBike": "informações da ebike",
+    "InfoUser": "Informação do usuário",
+    "Informations": "Informações adicionais",
+    "UpdateInterval": "Intervalo de atualização em minutos",
+    "UseSourceAnalytix": "Use o adaptador SourceAnalytix",
+    "UserName": "Nome de usuário (endereço de correio)",
+    "UserPassword": "Senha",
+    "boschebike adapter settings": "Configurações do adaptador para boschebike"
+}

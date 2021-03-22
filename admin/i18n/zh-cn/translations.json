@@ -1,0 +1,12 @@
+{
+    "Account": "博世eBike Connect帐户",
+    "General": "设定值",
+    "InfoEBike": "电动自行车信息",
+    "InfoUser": "用户信息",
+    "Informations": "附加信息",
+    "UpdateInterval": "更新间隔（以分钟为单位）",
+    "UseSourceAnalytix": "使用适配器SourceAnalytix",
+    "UserName": "用户名（邮件地址）",
+    "UserPassword": "密码",
+    "boschebike adapter settings": "boschebike的适配器设置"
+}
